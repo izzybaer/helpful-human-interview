@@ -6,6 +6,9 @@
 import React from 'react';
 import {renderIf} from '../../lib/util.js';
 import ColorSwatch from '../color-swatch';
+import {GridList, GridTile} from 'material-ui';
+
+
 
 class ListView extends React.Component{
   constructor(props){
@@ -16,15 +19,28 @@ class ListView extends React.Component{
   }
 
   render(){
+    const styles = {
+      root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+      },
+      gridList: {
+        width: 500,
+        height: 450,
+        overflowY: 'auto',
+      },
+    };
     return(
       <div className='color-swatch'>
         {renderIf(!this.state.visible,
           <div onClick={() => this.setState({visible: false})}>
-            <div> {color} </div>
-            <div> {color.name} </div>
+            <GridList>
+              <GridTile title="lfksjhdkjfhdkl" />
+            </GridList>
           </div>
         )}
       </div>
-    )
+    );
   }
 }
