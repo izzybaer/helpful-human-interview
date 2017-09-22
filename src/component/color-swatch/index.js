@@ -7,14 +7,16 @@ import {GridList, GridTile} from 'material-ui/GridList';
 class ColorSwatch extends React.Component{
   constructor(props){
     super(props);
-    this.state = props.color
-      ? {...props.color}
-      : {name: '', color: []};
+    this.state = {
+      name: '',
+      colors: [],
+    };
 
     this.handleRandomColorSwatch = this.handleRandomColorSwatch.bind(this);
     this.handleChange = this.handleChange.bind(this);
     // this.handleClick = this.handleClick.bind(this);
   }
+
 
   handleRandomColorSwatch() {
     var color = randomColor({
@@ -40,9 +42,27 @@ class ColorSwatch extends React.Component{
   // }
 
   render(){
+    let {colors} = this.props;
     return(
-      <div className='color-swatch-container'>
 
+      <div className='color-swatch-container'>
+        <GridList>
+          {this.state.colors.map(color => {
+            <GridTile
+              title="#cffff1"
+              backgroundColor={colors[1]}
+              titleBackground={colors.name}
+              onClick={this.handleChange}
+            />;
+          })}
+
+
+          <GridTile title="fdfd"/>
+          <GridTile title="fdfd"/>
+          <GridTile title="fdfd"/>
+          <GridTile title="fdfd"/>
+          <GridTile title="fdfd"/>
+        </GridList>
 
       </div>
     );
