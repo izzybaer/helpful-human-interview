@@ -8,17 +8,25 @@ import {renderIf} from '../../lib/util.js';
 import ColorSwatch from '../color-swatch';
 import {GridList, GridTile} from 'material-ui';
 
-
-
 class ListView extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       visible: true,
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
+  handleChange(e){
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  }
+
+
   render(){
+    let {colors} = this.props;
+    console.log('colors', colors);
     const styles = {
       root: {
         display: 'flex',
@@ -32,15 +40,29 @@ class ListView extends React.Component{
       },
     };
     return(
-      <div className='color-swatch'>
-        {renderIf(!this.state.visible,
-          <div onClick={() => this.setState({visible: false})}>
-            <GridList>
-              <GridTile title="lfksjhdkjfhdkl" />
-            </GridList>
-          </div>
+      <div className='main' style={styles.root}>
+        {/* {renderIf(!this.state.visible,
+          <div className='color-swatch'>
+            <ColorSwatch onClick={() => this.setState({visible: false})} />
+            <div>
+              <GridList>
+                {colors.map(color =>
+
+                  <GridTile
+                    title="#cffff1"
+                    key={color}
+                    backgroundColor={colors[0]}
+                    titleBackground={colors.name}
+                    onClick={this.handleChange}
+                  />
+                )}
+              </GridList> */}
+            {/* </div> */}
+          {/* </div> */}
         )}
       </div>
     );
   }
 }
+
+export default ListView;

@@ -8,7 +8,6 @@ class ColorSwatch extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      name: '',
       colors: [],
     };
 
@@ -19,13 +18,17 @@ class ColorSwatch extends React.Component{
 
 
   handleRandomColorSwatch() {
-    var color = randomColor({
+    var color = [...randomColor({
       count: 100,
       luminosity: 'random',
       hue: 'green',
-    });
+    })];
+    console.log(color, 'color');
 
-    color.push(this.state.colors);
+    // var newStateArray = this.state.colors.slice();
+    // this.state.colors.push(color);
+    this.setState({colors: color});
+    console.log(this.state.colors, 'STATE____colors');
   }
 
   handleChange(e){
@@ -33,37 +36,51 @@ class ColorSwatch extends React.Component{
       [e.target.name]: e.target.value,
     });
   }
-  //
-  // handleClick(e){
-  //   e.preventDefault();
-  //   this.props.onComplete(this.state);
-  //   if(!this.props.colors)
-  //     this.setState({colors:[]});
-  // }
+
 
   render(){
+    const styles = {
+      root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+      },
+      gridList: {
+        width: 500,
+        height: 450,
+        overflowY: 'auto',
+      },
+    };
     let {colors} = this.props;
+    // console.log('scott was here', colors)
     return(
 
       <div className='color-swatch-container'>
         <GridList>
           {this.state.colors.map(color => {
+
             <GridTile
               title="#cffff1"
-              backgroundColor={colors[1]}
-              titleBackground={colors.name}
-              onClick={this.handleChange}
+              key={color}
+              backgroundColor={color}
+              titleBackground={'white'}
+              onChange={this.handleRandomColorSwatch}
             />;
           })}
-
-
-          <GridTile title="fdfd"/>
-          <GridTile title="fdfd"/>
-          <GridTile title="fdfd"/>
-          <GridTile title="fdfd"/>
-          <GridTile title="fdfd"/>
+          {/* <GridTile title="#cffff1"/>
+          <GridTile title="#cffff1"/>
+          <GridTile title="#cffff1"/>
+          <GridTile title="#cffff1"/>
+          <GridTile title="#cffff1"/>
+          <GridTile title="#cffff1"/>
+          <GridTile title="#cffff1"/>
+          <GridTile title="#cffff1"/>
+          <GridTile title="#cffff1"/>
+          <GridTile title="#cffff1"/>
+          <GridTile title="#cffff1"/>
+          <GridTile title="#cffff1"/> */}
         </GridList>
-
+        <button onClick={this.handleRandomColorSwatch}> Hi </button>
       </div>
     );
   }
