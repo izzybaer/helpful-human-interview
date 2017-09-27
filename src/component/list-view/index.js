@@ -4,9 +4,11 @@
 // displays a grouping of color swatches, 12 per page, 100 swatches total
 
 import React from 'react';
-import {renderIf} from '../../lib/util.js';
+import randomColor from 'randomcolor';
 import ColorSwatch from '../color-swatch';
+import {renderIf} from '../../lib/util.js';
 import {GridList, GridTile} from 'material-ui';
+import DashboardContainer from '../dashboard-container';
 
 class ListView extends React.Component{
   constructor(props){
@@ -18,15 +20,14 @@ class ListView extends React.Component{
   }
 
   handleChange(e){
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+    this.setState({visible: e.target.value});
   }
 
 
   render(){
     let {colors} = this.props;
-    console.log('colors', colors);
+    // {this.handleRandomColorSwatch();}
+    // console.log(ColorSwatch, 'color-swatch');
     const styles = {
       root: {
         display: 'flex',
@@ -41,25 +42,24 @@ class ListView extends React.Component{
     };
     return(
       <div className='main' style={styles.root}>
-        {/* {renderIf(!this.state.visible,
-          <div className='color-swatch'>
-            <ColorSwatch onClick={() => this.setState({visible: false})} />
-            <div>
-              <GridList>
-                {colors.map(color =>
-
-                  <GridTile
-                    title="#cffff1"
-                    key={color}
-                    backgroundColor={colors[0]}
-                    titleBackground={colors.name}
-                    onClick={this.handleChange}
-                  />
-                )}
-              </GridList> */}
-            {/* </div> */}
-          {/* </div> */}
-        )}
+        {/* {renderIf(!this.state.visible, */}
+        <div className='color-swatch'>
+          {/* <ColorSwatch  /> */}
+          <div>
+            {/* <GridList>
+              {this.state.colors.map((item, i) => {
+                return <GridTile
+                  key={i}
+                  title="#cffff1"
+                  backgroundColor={item.colors.name}
+                  titleBackground={'white'}
+                  onClick={this.handleChange}
+                />;
+              })}
+            </GridList> */}
+          </div>
+        </div>
+        {/* // )} */}
       </div>
     );
   }

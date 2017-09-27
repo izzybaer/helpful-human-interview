@@ -1,6 +1,7 @@
 // individual color swatch (color top 80%, hex value bottom 20%)
 import React from 'react';
 import randomColor from 'randomcolor';
+// import DashboardContainer from '../dashboard-container';
 import {GridList, GridTile} from 'material-ui/GridList';
 
 
@@ -8,37 +9,21 @@ class ColorSwatch extends React.Component{
   constructor(props){
     super(props);
     this.state = {
+      name: '',
       colors: [],
     };
 
-    this.handleRandomColorSwatch = this.handleRandomColorSwatch.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
-  }
-
-
-  handleRandomColorSwatch() {
-    var color = [...randomColor({
-      count: 100,
-      luminosity: 'random',
-      hue: 'green',
-    })];
-    console.log(color, 'color');
-
-    // var newStateArray = this.state.colors.slice();
-    // this.state.colors.push(color);
-    this.setState({colors: color});
-    console.log(this.state.colors, 'STATE____colors');
   }
 
   handleChange(e){
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+    this.setState({colors: e.target.value});
   }
 
 
   render(){
+    // let {colors} = this.props.colors;
+    console.log(this.props.colors, 'something');
     const styles = {
       root: {
         display: 'flex',
@@ -51,21 +36,27 @@ class ColorSwatch extends React.Component{
         overflowY: 'auto',
       },
     };
-    let {colors} = this.props;
-    // console.log('scott was here', colors)
     return(
-
+      // <div>
+      //   {this.props.colors.map((color,i) => {
+      //     return (
+      //       <p key={i}>{color}</p>
+      //     );
+      //   })}
+      // </div>
       <div className='color-swatch-container'>
-        <GridList>
-          {this.state.colors.map(color => {
-
-            <GridTile
-              title="#cffff1"
-              key={color}
-              backgroundColor={color}
-              titleBackground={'white'}
-              onChange={this.handleRandomColorSwatch}
-            />;
+        <GridList
+          cellHeight={180}
+          style={styles.gridList}>
+          {this.props.colors.map(color => {
+            return (
+              <GridTile
+                title="#cffff1"
+                key={color}
+                style={{backgroundColor: color}}
+                titleBackground={'white'}
+              />
+            );
           })}
           {/* <GridTile title="#cffff1"/>
           <GridTile title="#cffff1"/>
@@ -80,7 +71,6 @@ class ColorSwatch extends React.Component{
           <GridTile title="#cffff1"/>
           <GridTile title="#cffff1"/> */}
         </GridList>
-        <button onClick={this.handleRandomColorSwatch}> Hi </button>
       </div>
     );
   }
