@@ -31,8 +31,8 @@ class ColorSwatch extends React.Component{
         justifyContent: 'space-around',
       },
       gridList: {
-        width: 500,
-        height: 450,
+        width: 900,
+        height: 600,
         overflowY: 'auto',
       },
     };
@@ -46,15 +46,20 @@ class ColorSwatch extends React.Component{
       // </div>
       <div className='color-swatch-container'>
         <GridList
-          cellHeight={180}
+          cellHeight={200}
+          cols={4}
+          padding={4}
           style={styles.gridList}>
           {this.props.colors.map(color => {
             return (
               <GridTile
-                title="#cffff1"
+                title={'#cffff1'}
                 key={color}
-                style={{backgroundColor: color}}
-                titleBackground={'white'}
+                style={{backgroundColor: color, height: '200px', width: '200px'}}
+                cols={1}
+                rows={1}
+                titlePosition='bottom'
+                titleBackground='white'
               />
             );
           })}
