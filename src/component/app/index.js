@@ -1,11 +1,11 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
-import helpfulHumanSVG from '../../assets/logo-symbol.svg';
 import {BrowserRouter, Route} from 'react-router-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import DashboardContainer from '../dashboard-container';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import helpfulHumanSVG from '../../assets/logo-symbol.svg';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class App extends React.Component{
   render(){
@@ -13,15 +13,24 @@ class App extends React.Component{
       title: {
         cursor: 'pointer',
       },
+      logo: {
+        width: '34px',
+        height: '34px',
+        marginTop: '7px',
+        marginLeft: '10px',
+      },
+      appBar: {
+        backgroundColor: '#373C3C',
+      },
     };
     const muiTheme = getMuiTheme({
       inputs: {
-        margin: '0 auto',
-        backgroundColor: 'white',
-        color: '#DDDDDD',
-        fontFamily: 'Source Serif Pro',
-        borderRadius: '5px',
         padding: '1px',
+        margin: '0 auto',
+        color: '#DDDDDD',
+        borderRadius: '5px',
+        backgroundColor: 'white',
+        fontFamily: 'Source Serif Pro',
       },
     });
     return (
@@ -29,8 +38,12 @@ class App extends React.Component{
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className='app'>
           <AppBar
-            iconElementLeft={<img src='src/assets/logo-symbol.svg'/>}
-            style={{backgroundColor: '#373C3C'}}
+            iconElementLeft={
+              <img src='src/assets/logo-symbol.svg'
+                style={styles.logo}
+              />
+            }
+            style={styles.appBar}
             iconElementRight={
               <div>
                 <TextField
