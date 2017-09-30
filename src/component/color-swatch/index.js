@@ -68,7 +68,7 @@ class ColorSwatch extends React.Component{
                   rows={1.5}
                   key={color}
                   title={color}
-                  onClick={this.handleToggleClick(this, index)}
+                  onClick={this.handleToggleClick}
                   titlePosition='bottom'
                   titleBackground='white'
                   titleStyle={styles.gridTile.titleStyle}
