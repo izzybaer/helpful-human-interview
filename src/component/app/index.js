@@ -1,4 +1,5 @@
 import React from 'react';
+import Sidebar from 'material-ui/Paper';
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import {BrowserRouter, Route} from 'react-router-dom';
@@ -9,17 +10,19 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class App extends React.Component{
   render(){
+
     const styles = {
       title: {
         cursor: 'pointer',
       },
       logo: {
-        width: '34px',
-        height: '34px',
-        marginTop: '7px',
-        marginLeft: '10px',
+        width: '46px',
+        height: '46px',
+        marginTop: '10px',
+        marginLeft: '15px',
       },
       appBar: {
+        height: '85px',
         backgroundColor: '#373C3C',
       },
     };
@@ -27,10 +30,13 @@ class App extends React.Component{
       inputs: {
         padding: '1px',
         margin: '0 auto',
+        marginTop: '10px',
+        marginRight: '30px',
         color: '#DDDDDD',
-        borderRadius: '5px',
+        borderRadius: '8px',
         backgroundColor: 'white',
         fontFamily: 'Source Serif Pro',
+        fontColor: '#E7E7E7',
       },
     });
     return (
@@ -48,14 +54,16 @@ class App extends React.Component{
               <div>
                 <TextField
                   hintText='Search'
-                  hintStyle={{marginLeft: '20px'}}
+                  hintStyle={{marginLeft: '20px', fontSize: '21px'}}
                   style={muiTheme.inputs}
                   underlineShow={false}
 
                 />
               </div>
+
             }
           />
+
           <BrowserRouter>
             <main>
               <Route exact path='/' component={DashboardContainer} />
