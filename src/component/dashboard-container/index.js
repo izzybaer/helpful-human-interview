@@ -1,21 +1,59 @@
-// holds app state / view state
-// conditionally renders list view / detail view based on whether or not a swatch has been clicked.
-// list view is the default view
 import React from 'react';
+import ListView from '../list-view';
 import DetailView from '../detail-view';
-import ColorSwatch from '../color-swatch';
+import randomColor from 'randomcolor';
+// import ColorSwatch from '../color-swatch';
 
 class DashboardContainer extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      listView: true,
+      name: '',
+      colors: [],
+      clicked: false,
     };
+    this.handleToggleClick = this.handleToggleClick.bind(this);
+    this.handleRandomColorSwatch = this.handleRandomColorSwatch.bind(this);
   }
+  handleToggleClick(index, e){
+    e.preventDefault();
+    this.setState(prevState => ({clicked: true}));
+  }
+
+  componentWillMount(){
+    var colors = [...randomColor({
+      count: 100,
+      luminosity: 'random',
+
+    })];
+    this.setState({colors: colors});
+  }
+
+  handleRandomColorSwatch() {
+    var colors = [...randomColor({
+      count: 100,
+      luminosity: 'random',
+    })];
+    this.setState({colors: colors});
+  }
+
   render(){
+    const clicked = this.state.clicked;
     return(
-      <div className='main'>
-        <ColorSwatch />
+      <div className='dashboard-container'>
+        {!clicked ? (
+          <ListView
+            colors={this.state.colors}
+            visible={true}
+            clicked={false}
+            onClick={this.handleToggleClick} />
+        ) : (
+          <DetailView
+            colors={this.state.colors}
+            visible={false}
+            clicked={true}
+            onClick={this.handleToggleClick} />
+        )}
       </div>
     );
   }
