@@ -77,7 +77,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(mp3|aac|aiff|wav|flac|m4a|ogg|svg)$/,
+        test: /\.(mp3|aac|aiff|wav|flac|m4a|ogg)$/,
         // exclude: /\.glyph.svg/,
         use: [
           {

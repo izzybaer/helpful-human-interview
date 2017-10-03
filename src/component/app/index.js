@@ -4,9 +4,8 @@ import TextField from 'material-ui/TextField';
 import {BrowserRouter, Route} from 'react-router-dom';
 import DashboardContainer from '../dashboard-container';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-// import helpfulHumanSVG from '../../assets/logo-symbol.svg';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import logo from '../../assets/logo-symbol.svg';
+import logo from 'https://s3-us-west-2.amazonaws.com/helpful-human-svg/logo-symbol.svg';
 
 class App extends React.Component{
   render(){
