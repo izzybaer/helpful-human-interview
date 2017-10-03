@@ -1,9 +1,5 @@
 import React from 'react';
-import Sidebar from 'material-ui/Paper';
 import AppBar from 'material-ui/AppBar';
-import Menu from 'material-ui/Menu';
-import RaisedButton from 'material-ui/RaisedButton';
-import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
 import {BrowserRouter, Route} from 'react-router-dom';
 import DashboardContainer from '../dashboard-container';
@@ -78,7 +74,6 @@ class App extends React.Component{
       },
     });
     return (
-
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className='app'>
           <AppBar
@@ -95,32 +90,10 @@ class App extends React.Component{
                   hintStyle={{marginLeft: '20px', fontSize: '21px'}}
                   style={muiTheme.inputs}
                   underlineShow={false}
-
                 />
               </div>
-
             }
           />
-          <Sidebar
-            style={styles.sidebar}
-            zDepth={1}>
-            <RaisedButton
-              label='Random Color'
-              labelStyle={styles.button.labelStyle}
-              style={styles.button}
-              buttonStyle={{borderRadius: '10px', width: '225px', height: '55px', border: '1px solid #373C3C'}}
-            />
-            <Menu>
-              <MenuItem primaryText='Red' style={styles.menu}/>
-              <MenuItem primaryText='Orange' style={styles.menu}/>
-              <MenuItem primaryText='Yellow' style={styles.menu}/>
-              <MenuItem primaryText='Green' style={styles.menu}/>
-              <MenuItem primaryText='Blue' style={styles.menu}/>
-              <MenuItem primaryText='Purple' style={styles.menu}/>
-              <MenuItem primaryText='Brown' style={styles.menu}/>
-              <MenuItem primaryText='Gray' style={styles.menu}/>
-            </Menu>
-          </Sidebar>
 
           <BrowserRouter>
             <main>
@@ -129,7 +102,6 @@ class App extends React.Component{
           </BrowserRouter>
         </div>
       </MuiThemeProvider>
-
     );
   }
 }
