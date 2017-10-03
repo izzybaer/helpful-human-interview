@@ -12,7 +12,7 @@
     "watch": "webpack-dev-server --inline --hot",
     "build": "webpack",
     "lint": "eslint .",
-    "heroku-postbuild": "webpack",
+    "heroku-prebuild": "webpack",
     "start": "node index.js"
   },
   "repository": {
