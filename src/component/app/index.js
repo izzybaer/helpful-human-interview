@@ -1,9 +1,5 @@
 import React from 'react';
-import Sidebar from 'material-ui/Paper';
 import AppBar from 'material-ui/AppBar';
-import Menu from 'material-ui/Menu';
-import RaisedButton from 'material-ui/RaisedButton';
-import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
 import {BrowserRouter, Route} from 'react-router-dom';
 import DashboardContainer from '../dashboard-container';
