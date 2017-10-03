@@ -5,7 +5,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import DashboardContainer from '../dashboard-container';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import logo from 'https://s3-us-west-2.amazonaws.com/helpful-human-svg/logo-symbol.svg';
+// import logo from 'https://s3-us-west-2.amazonaws.com/helpful-human-svg/logo-symbol.svg';
 
 class App extends React.Component{
   render(){
@@ -78,7 +78,7 @@ class App extends React.Component{
         <div className='app'>
           <AppBar
             iconElementLeft={
-              <img src={logo}
+              <img src='https://s3-us-west-2.amazonaws.com/helpful-human-svg/logo-symbol.svg'
                 style={styles.logo}
               />
             }
