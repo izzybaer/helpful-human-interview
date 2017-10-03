@@ -40,7 +40,6 @@ class App extends React.Component{
       },
     });
     return (
-
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className='app'>
           <AppBar
@@ -57,13 +56,10 @@ class App extends React.Component{
                   hintStyle={{marginLeft: '20px', fontSize: '21px'}}
                   style={muiTheme.inputs}
                   underlineShow={false}
-
                 />
               </div>
-
             }
           />
-
           <BrowserRouter>
             <main>
               <Route exact path='/' component={DashboardContainer} />
@@ -71,7 +67,6 @@ class App extends React.Component{
           </BrowserRouter>
         </div>
       </MuiThemeProvider>
-
     );
   }
 }

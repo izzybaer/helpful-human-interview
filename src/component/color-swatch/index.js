@@ -1,10 +1,9 @@
 import React from 'react';
-import randomColor from 'randomcolor';
-import RaisedButton from 'material-ui/RaisedButton';
-import Sidebar from 'material-ui/Paper';
-import {renderIf} from '../../lib/util.js';
 import Menu from 'material-ui/Menu';
+import randomColor from 'randomcolor';
+import Sidebar from 'material-ui/Paper';
 import MenuItem from 'material-ui/MenuItem';
+import RaisedButton from 'material-ui/RaisedButton';
 import DashboardContainer from '../dashboard-container';
 import {GridList, GridTile} from 'material-ui/GridList';
 
@@ -21,9 +20,9 @@ class ColorSwatch extends React.Component{
     this.handleToggleClick = this.handleToggleClick.bind(this);
   }
 
-  handleToggleClick(index, e){
+  handleToggleClick(e){
     e.preventDefault();
-    this.setState(prevState => ({clicked: true}));
+    this.setState(prevState => ({clicked: !prevState.clicked}));
   }
 
   handleChange(e){
@@ -42,7 +41,7 @@ class ColorSwatch extends React.Component{
         float: 'right',
         marginTop: 20,
         marginLeft: 30,
-        width: '75%',
+        width: '73%',
         height: '600px',
         overflowY: 'auto',
         fontFamily: 'Source Serif Pro',
@@ -53,17 +52,17 @@ class ColorSwatch extends React.Component{
         float: 'right',
         marginTop: 20,
         marginLeft: 30,
-        width: '75%',
+        width: '73%',
         height: '600px',
         overflowX: 'auto',
         fontFamily: 'Source Serif Pro',
       },
       gridListDetail: {
         float: 'right',
-        marginTop: 20,
+        marginTop: 8,
         marginLeft: 25,
         marginRight: 25,
-        width: '75%',
+        width: '73%',
         height: '600px',
         overflowY: 'auto',
         fontFamily: 'Source Serif Pro',
@@ -71,15 +70,15 @@ class ColorSwatch extends React.Component{
       sidebar: {
         float: 'left',
         height: '1100px',
-        width: '275px',
+        width: '270px',
         backgroundColor: '#D6D8D8',
-        textAlign: 'center',
+        textAlign: 'left',
         display: 'inline-block',
       },
       menu: {
         fontSize: 20,
         display: 'inline-block',
-        margin: '16px 32px 16px 0',
+        margin: '2px 2px 2px 2px',
         fontFamily: 'Source Serif Pro',
         fontWeight: 'bolder',
         color: '#373C3C',
@@ -132,7 +131,7 @@ class ColorSwatch extends React.Component{
         <br />
         <br />
         <br />
-        {!clicked ? ( // if the tile has  been clicked
+        {!clicked ? (
           <GridList
             cellHeight={200}
             cols={4}
@@ -203,5 +202,3 @@ class ColorSwatch extends React.Component{
 }
 
 export default ColorSwatch;
-
-// height: '225px', width: '175px',
