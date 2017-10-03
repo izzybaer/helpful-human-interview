@@ -4,8 +4,9 @@ import TextField from 'material-ui/TextField';
 import {BrowserRouter, Route} from 'react-router-dom';
 import DashboardContainer from '../dashboard-container';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import helpfulHumanSVG from '../../assets/logo-symbol.svg';
+// import helpfulHumanSVG from '../../assets/logo-symbol.svg';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import logo from '../../assets/logo-symbol.svg';
 
 class App extends React.Component{
   render(){
@@ -78,7 +79,7 @@ class App extends React.Component{
         <div className='app'>
           <AppBar
             iconElementLeft={
-              <img src='src/assets/logo-symbol.svg'
+              <img src={logo}
                 style={styles.logo}
               />
             }
