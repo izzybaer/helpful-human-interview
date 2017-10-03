@@ -25,16 +25,6 @@ If you'd like to implement additional functionality, or change the functionality
 ## Time
 Keep track of how much time you spent on the challenge but also feel free to spend as much time as you want. Your time is very valuable and we are thankful you're taking the time demonstrate your skills for us.
 
-## Component Architecture
-* app
-  * color-swatch-container (conditionally renders detail view, list view is default view)
-    * list-view-container(default)/detail-view-container
-      * nav-bar (holds HH logo and search bar)
-      * color-swatch-table (displays color swatches, 8 pages of 4 across 3 down, paginates data, has click functionality to change views)
-        * color-swatch (individual color swatch, color top 80%, swatch name bottom 20%)
-      * random-color-sidebar
-
-
 ## Core Goals
 - Replicate design
   - [Font](./FONT.md)
